@@ -15,7 +15,8 @@ class FolderHelper: MonoBehaviour
 									"Prefab",
 									"Textures",
 									"Plugins",
-									"Scene"};
+									"Scene",
+									"Material"};
 				foreach (string s in str) {
 						if (!Directory.Exists (Application.dataPath + "/" + s)) {
 								Directory.CreateDirectory (Application.dataPath + "/" + s);
