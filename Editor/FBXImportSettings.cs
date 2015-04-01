@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections;
 /// <summary>
-/// FBX导入设置 第一次导入时起作用
+/// 在导入FBX前将脚本放置在Editor文件夹中
 /// </summary>
 public class FBXImportSettings : AssetPostprocessor
 {
@@ -16,5 +16,10 @@ public class FBXImportSettings : AssetPostprocessor
         modelImporter.generateSecondaryUV = false;
 
         Debug.Log("Importing model at: " + assetPath);
+    }
+    //导入后在当前目录自动创建prefab
+    private void OnPostprocessModel(GameObject go)
+    {
+        PrefabUtility.CreatePrefab(assetPath.Replace(".FBX", ".prefab"), go);
     }
 }
